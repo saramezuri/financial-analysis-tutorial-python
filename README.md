@@ -10,7 +10,7 @@ NumPy's array-based computations help with numerical operations and assist in th
 Pandas, because of its DataFrame structure, help simplify data manipulation and cleaning and transform financial datasets.
 Matplotlib, as a plotting library, enables the creation of clear and insightful visualizations, essential for interpreting complex financial trends and patterns.
 
-The primary goal of this project is to explore the world of financial analysis using Python, focusing on key libraries such as NumPy, Pandas and Matplotlib. The outcome of this project is to create a tutorial on the process of analyzing financial data and visualizing the result as well. 
+The primary goal of this project is to explore the world of financial analysis using Python, focusing on key libraries such as NumPy, Pandas, and Matplotlib. The outcome of this project is to create a tutorial on the process of analyzing financial data and visualizing the result as well. 
 
 ## Background
 
@@ -18,8 +18,8 @@ For this project, my focus is on conducting a comprehensive analysis of the impa
 To achieve this, I will perform a thorough financial analysis of various stock indexes across Europe, more precisely: 
 
 * EURO STOXX 50 (The index holds stocks from eight eurozone countries: Belgium, Finland, France, Germany, Ireland, Italy, the Netherlands, and Spain.)
-* FTSE 100 (The FTSE 100 Index is a index of the 100 most highly capitalized companies traded on the London Stock Exchange.)
-* DAX (The DAX is stock market index consisting of the 40 major German companies trading on the Frankfurt Stock Exchange.)
+* FTSE 100 (The FTSE 100 Index is an index of the 100 most highly capitalized companies traded on the London Stock Exchange.)
+* DAX (The DAX is a stock market index consisting of the 40 major German companies trading on the Frankfurt Stock Exchange.)
 * CAC40 (The CAC 40 is the index of the largest 40 companies listed in France)
 * FTSE MIB (The Index consists of the 40 stocks listed on the Milano Borsa Italiana.)
 * SMI (The index SMI is the most important stock index in Switzerland and comprises the 20 largest stocks.) 
@@ -72,13 +72,9 @@ Python's data visualization advantages come from its useful libraries like Matpl
 
 Now, referring to the results we got above, we might have some missing data in our data frame. We can check this by using a Python library called `missingno`. 
 
-![png](output_31_0.png)
+![png](Final_Project_Markdown/missing-data.png)
 
 As we can see, we do not have many data missing, so we are good to go. 
-
-If you want to get a better view of the missing data for each stock index, then create a data frame for each of them and then use `missingno` again. For example, let's see what the missing data looks like for the **Milano Italia Borsa (FTSE MIB)**: 
-
-![png](output_33_0.png)
 
 ### Line Charts
 
@@ -86,11 +82,11 @@ Continuing forward, our next objective is to generate some line charts that show
 
 We can use the previously generated data frames containing adjusted closing prices to create individual plots. 
 
-![png](output_35_0.png)
+![png](Final_Project_Markdown/adj-price-seaborn.png)
 
 Another way to do this can be by using `Matplotlib`, as below:
 
-![png](output_37_0.png)
+![png](Final_Project_Markdown/closing-price-matplotlib.png)
 
 These line charts are quite effective for identifying trends or irregularities.
 
@@ -105,7 +101,6 @@ The attached graph illustrates the peak in daily deaths around March-April 2020 
 The data source for this information is available on the linked website.
 
 https://www.worldometers.info/coronavirus/country/italy/
-
 
 ### Candlestick Charts
 
@@ -139,47 +134,33 @@ This analysis includes calculating absolute and annualized returns, comparing pe
 
 Additionally, return analysis provides insights into the consistency of the performance of the market in general, and by analyzing returns, we try to get a better idea of the success of the investments. 
 
-Now, let's calculate the return of our stock indices for each closing price. For this, we can use `.pct_change()` function is a method provided by pandas, a popular data manipulation library in Python. This function is specifically used with time series data, such as stock prices or other sequential data, and it calculates the percentage change between the current and a prior element in the series.
-
-By using the data frame, we can see how much we gain or loss the first week of March 2020. The positive values represent gains and the negative values represent losses. 
-
-For example, FTSE MIB gained 0.43 % on March 3rd and 0.91% on March 4th, but lost 1.78% on the 5th and 3.502% on the 6th, resulting in a loss overall. 
-
-To get a better understanding, we can use Average Daily Returns.The average returns is the expected value of an investment’s change over time. To calculate the average daily return, we use the formula: 
+To get a better understanding, we can use Average Daily Returns. The average return is the expected value of an investment’s change over time. To calculate the average daily return, we use the formula: 
 
 **ADR = Sum of Daily Returns / Number of Trading Days**.
 
 We can calculate the ADR in Python simply by using the `.mean()` function. 
 
-The above results are the average daily returns over 5 years. In other words, it seems that the value of the stock market in Italy has increased by 0.022% each day.
-
-While, IBEX, the stock index for the Spanish market seems to have decreased by 0.0017% daily, indicating that the Spanish economy was struggling even before Covid, and Covid impacted it even more.
-
 Another way to analyze our data would be by calculating the **Best** and the **Worst** day returns. For this, we simply need to find what is the minimum and the maximum return for each stock index. 
 
-It is not a surprise that the Worst Day Returns are during March 2020 (the peak of pandemic). 
+It is not a surprise that the Worst Day Returns are during March 2020 (the peak of the pandemic). 
 
-![png](output_58_0.png)
+![png](Final_Project_Markdown/daily-returns.png)
 
 The plot of the returns seems to be quite messy. So let's create some subplots. To do so, Plotly's `make_subplots` function comes in handy.
 
-The code below creates a subplot for each stock, arranging them vertically. The `make_subplots` function is used to create a subplot grid, and each stock's returns are plotted in a separate subplot. 
-
-![png](output_58_0.png)
+![png](Final_Project_Markdown/daily-returns-subplots.png)
 
 We can also plot the distribution plot of each stock index as shown below: 
 
-![png](output_58_0.png)
+![png](Final_Project_Markdown/daily-return-mib.png)
 
-From these charts, it is evident that the lowest returns occurred in March 2020, demonstrating again substantial impact of the pandemic on the market. Once again, the data highlights the profound influence of global events on financial markets, with March 2020 reflecting a period of particularly diminished returns. 
+From these charts, it is evident that the lowest returns occurred in March 2020, demonstrating again the substantial impact of the pandemic on the market. Once again, the data highlights the profound influence of global events on financial markets, with March 2020 reflecting a period of particularly diminished returns. 
 
-And lastly, let's look at the **Volatility** of these stock index.
+And lastly, let's look at the **Volatility** of these stock indexes.
 
 Volatility refers to the degree of variation or fluctuation in the price of a stock. It is a statistical measure that quantifies the dispersion of returns for a given security or market index.
 
 High volatility implies that the price of the asset can change dramatically in a short period, while low volatility suggests more stable and gradual price movements. We are interested in the **Historical Volatility**, which measures how much the price of an asset has deviated from its average price over a specific period in the past. Historical volatility is often calculated as the standard deviation of the daily returns.
-
-It seems like the SSMI has the lowest standard deviation, suggesting that the Swiss market might have been the most stable and safe market. 
 
 ## Conclusions
 
@@ -191,7 +172,7 @@ We explored key financial metrics, including stock prices, returns, and daily vo
 
 The tutorial also demonstrated how to create insightful visualizations, such as candlestick charts and line plots, to enhance data interpretation. 
 
-Additionally, we conducted a return analysis, calculated average daily returns and volatility. By employing practical examples and hands-on coding exercises, this tutorial equips you with the essential tools and skills to conduct a simple financial analysis, helping you to get some information regarding different investments.
+Additionally, we conducted a return analysis, and calculated average daily returns and volatility. By employing practical examples and hands-on coding exercises, this tutorial equips you with the essential tools and skills to conduct a simple financial analysis, helping you to get some information regarding different investments.
 
 
 
