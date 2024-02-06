@@ -58,7 +58,7 @@ Next, we to import all these stock index tickers using `yfinance`, and then we c
 ## Exploratory Data Analysis
 Now let's look at this data frame and get an idea of what our data looks like. 
 
-To get a better understanding of our data frame, we look at its shape, structure, and descriptive statistics. 
+To get a better understanding of our data frame, we look at its shape, structure, and descriptive statistics. (check notebook for the details)
 
 ## Data Visualization
 
